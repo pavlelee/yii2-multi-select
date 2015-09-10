@@ -9,7 +9,7 @@ jQuery(function ($) {
 });
 
 /**
- *
+ * callback
  * @param e
  */
 function multiSelectBack(e) {
