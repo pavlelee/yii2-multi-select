@@ -1,0 +1,22 @@
+{
+    "name": "pavle/yii2-multi-select",
+    "description": "yii2 multi select",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pavle",
+            "email": "523260513@qq.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "kartik-v/yii2-widget-select2": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "pavle\\multiselect\\": ""
+        }
+    }
+}
