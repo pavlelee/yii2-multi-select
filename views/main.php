@@ -19,6 +19,13 @@ use yii\web\View;
 /* @var $widget MultiSelectWidget */
 $widget = $this->context;
 MultiSelectAsset::register($this);
+
+$var = Json::encode($widget->model->{$widget->attribute});
+$js = <<<JS
+var list = {$var};
+initMultiSelectHandle(list);
+JS;
+
 ?>
 
 <?= Select2::widget([
@@ -46,6 +53,6 @@ MultiSelectAsset::register($this);
 <script type="text/html" id="template-multi-select">
     <div class="item-multi-select" data-id="{{id}}">
         <i class="fa fa-minus-circle multi-select-remove"></i> {{text}}
-        <input type="hidden" name="<?= Html::getInputName($widget->model, $widget->attribute)?>[]" value="{{id}}">
+        <input type="hidden" name="<?= Html::getInputName($widget->model, $widget->attribute)?>[{{id}}]" value="{{text}}">
     </div>
 </script>

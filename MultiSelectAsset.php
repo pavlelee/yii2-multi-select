@@ -21,4 +21,8 @@ class MultiSelectAsset extends AssetBundle
     public $js = [
         'js/multi.js'
     ];
+
+    public $depends = [
+        'yii\web\JqueryAsset',
+    ];
 }

@@ -24,3 +24,19 @@ function multiSelectBack(e) {
         $('#container-multi-select').append(template);
     }
 }
+
+/**
+ *
+ * @param list
+ */
+function initMultiSelectHandle(list){
+    var e = {};
+
+    $.each(list, function(key, value){
+        e.params.data = {
+            id: key,
+            text: value
+        };
+        multiSelectBack(e);
+    });
+}
