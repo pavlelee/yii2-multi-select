@@ -30,7 +30,7 @@ function multiSelectBack(e) {
  * @param list
  */
 function initMultiSelectHandle(list){
-    var e = {};
+    var e = {params: {}};
 
     $.each(list, function(key, value){
         e.params.data = {

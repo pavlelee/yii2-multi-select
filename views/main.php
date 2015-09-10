@@ -3,6 +3,7 @@ use kartik\select2\Select2;
 use pavle\multiselect\MultiSelectAsset;
 use pavle\multiselect\MultiSelectWidget;
 use yii\bootstrap\Html;
+use yii\helpers\Json;
 use yii\helpers\Url;
 use yii\web\View;
 
@@ -20,18 +21,18 @@ use yii\web\View;
 $widget = $this->context;
 MultiSelectAsset::register($this);
 
-$var = Json::encode($widget->model->{$widget->attribute});
+$value = $widget->value ? : [];
+$var = Json::encode($value);
 $js = <<<JS
 var list = {$var};
 initMultiSelectHandle(list);
 JS;
 
+$this->registerJs($js);
 ?>
 
 <?= Select2::widget([
-    'model' => $widget->model,
-    'attribute' => $widget->attribute,
-    'initValueText' => $widget->value,
+    'name' => $widget->name,
     'options' => ['placeholder' => Yii::t('shopping', 'Search for Attribute')],
     'pluginOptions' => [
         'allowClear' => true,
@@ -46,6 +47,7 @@ JS;
     ],
 ]) ?>
 
+<?= Html::hiddenInput($widget->name)?>
 <div id="container-multi-select" class="well well-sm">
 
 </div>
