@@ -31,21 +31,7 @@ JS;
 $this->registerJs($js);
 ?>
 
-<?= Select2::widget([
-    'name' => $widget->name,
-    'options' => ['placeholder' => Yii::t('shopping', 'Search for Attribute')],
-    'pluginOptions' => [
-        'allowClear' => true,
-        'minimumInputLength' => 1,
-        'ajax' => [
-            'url' => Url::to($widget->url),
-            'dataType' => 'json',
-        ],
-    ],
-    'pluginEvents' => [
-        "select2:select" => "multiSelectBack",
-    ],
-]) ?>
+<?= Select2::widget($widget->select2Options) ?>
 
 <?= Html::hiddenInput($widget->name)?>
 <div id="container-multi-select" class="well well-sm">

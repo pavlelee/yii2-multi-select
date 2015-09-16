@@ -11,6 +11,8 @@ class MultiSelectWidget extends InputWidget
 {
     public $url;
 
+    public $select2Options;
+
     /**
      * @inheritDoc
      */
@@ -22,6 +24,22 @@ class MultiSelectWidget extends InputWidget
             $this->name = $this->name ?: Html::getInputName($this->model, $this->attribute);
             $this->value = $this->value ?: Html::getAttributeValue($this->model, $this->attribute);
         }
+
+        $this->select2Options = ArrayHelper::merge([
+            'name' => $this->name,
+            'options' => ['placeholder' => Yii::t('shopping', 'Search for Attribute')],
+            'pluginOptions' => [
+                'allowClear' => true,
+                'minimumInputLength' => 1,
+                'ajax' => [
+                    'url' => Url::to($this->url),
+                    'dataType' => 'json',
+                ],
+            ],
+            'pluginEvents' => [
+                "select2:select" => "multiSelectBack",
+            ],
+        ], $this->select2Options);
     }
 
 
