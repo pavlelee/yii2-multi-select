@@ -4,7 +4,6 @@ use pavle\multiselect\MultiSelectAsset;
 use pavle\multiselect\MultiSelectWidget;
 use yii\bootstrap\Html;
 use yii\helpers\Json;
-use yii\helpers\Url;
 use yii\web\View;
 
 /**

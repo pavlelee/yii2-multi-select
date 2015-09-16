@@ -2,9 +2,11 @@
 
 namespace pavle\multiselect;
 
-use yii\helpers\Html;
-use yii\widgets\InputWidget;
+use Yii;
+use yii\bootstrap\Html;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
+use yii\widgets\InputWidget;
 
 /**
  * This is just an example.
@@ -13,7 +15,7 @@ class MultiSelectWidget extends InputWidget
 {
     public $url;
 
-    public $select2Options;
+    public $select2Options = [];
 
     /**
      * @inheritDoc
