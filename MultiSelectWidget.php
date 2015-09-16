@@ -1,8 +1,10 @@
 <?php
 
 namespace pavle\multiselect;
-use yii\bootstrap\Html;
+
+use yii\helpers\Html;
 use yii\widgets\InputWidget;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is just an example.
