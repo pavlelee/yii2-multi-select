@@ -3,7 +3,7 @@
 namespace pavle\multiselect;
 
 use Yii;
-use yii\bootstrap\Html;
+use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\widgets\InputWidget;
