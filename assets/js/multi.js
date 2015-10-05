@@ -14,23 +14,25 @@ jQuery(function ($) {
  */
 function multiSelectBack(e) {
     var data = e.params.data;
+    var id = e.target.id;
 
-    var $container = $('#container-multi-select');
+    var $container = $('#container-multi-select-'+ id);
     if($('[data-id="'+ data.id +'"]', $container).length < 1){
-        var template = $('#template-multi-select').html();
+        var template = $('#template-multi-select-' + id).html();
         template = template.replace(/\{\{id}}/g, data.id);
         template = template.replace(/\{\{text}}/g, data.text);
 
-        $('#container-multi-select').append(template);
+        $container.append(template);
     }
 }
 
 /**
  *
  * @param list
+ * @param id
  */
-function initMultiSelectHandle(list){
-    var e = {params: {}};
+function initMultiSelectHandle(list, id){
+    var e = {params: {}, target:{id: id}};
 
     $.each(list, function(key, value){
         e.params.data = {

@@ -24,7 +24,7 @@ $value = $widget->value ? : [];
 $var = Json::encode($value);
 $js = <<<JS
 var list = {$var};
-initMultiSelectHandle(list);
+initMultiSelectHandle(list, '{$widget->id}');
 JS;
 
 $this->registerJs($js);
@@ -33,11 +33,11 @@ $this->registerJs($js);
 <?= Select2::widget($widget->select2Options) ?>
 
 <?= Html::hiddenInput($widget->name)?>
-<div id="container-multi-select" class="well well-sm">
+<div id="container-multi-select-<?= $widget->id?>" class="container-multi-select well well-sm">
 
 </div>
 
-<script type="text/html" id="template-multi-select">
+<script type="text/html" id="template-multi-select-<?= $widget->id?>">
     <div class="item-multi-select" data-id="{{id}}">
         <i class="fa fa-minus-circle multi-select-remove"></i> {{text}}
         <input type="hidden" name="<?= Html::getInputName($widget->model, $widget->attribute)?>[{{id}}]" value="{{text}}">

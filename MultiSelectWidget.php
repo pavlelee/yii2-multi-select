@@ -30,6 +30,7 @@ class MultiSelectWidget extends InputWidget
         }
 
         $this->select2Options = ArrayHelper::merge([
+            'id' => $this->id,
             'name' => $this->name,
             'options' => ['placeholder' => Yii::t('shopping', 'Search for Attribute')],
             'pluginOptions' => [
